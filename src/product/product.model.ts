@@ -5,8 +5,11 @@ export class ProductCharacteristics {
     value: string
 }
 
-Schema()
+export type TypeProductModel = ProductModel & Document;
+
+@Schema()
 export class ProductModel {
+
     @Prop({ type: () => String })
     image: string
 

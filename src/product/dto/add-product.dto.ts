@@ -1,6 +1,6 @@
 
 
-export class AddPrductDto {
+export class AddProductDto {
     image: string
     title: string
     price: number

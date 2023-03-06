@@ -8,6 +8,8 @@ export enum TopLevelCategory {
     Products
 }
 
+export type TypeTopPageModel = TopPageModel & Document;
+
 export class HhData {
     @Prop({ type: () => Number })
     conut: number;
