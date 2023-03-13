@@ -1,7 +1,10 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
+import { IsString } from "class-validator";
 
 export class ProductCharacteristics {
+    @IsString()
     name: string
+    @IsString()
     value: string
 }
 

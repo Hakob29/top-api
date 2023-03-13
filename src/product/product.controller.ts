@@ -1,10 +1,15 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpException, Param, Post, Put, UseFilters, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { HttpExceptionFilter } from 'src/auth/exception/http-exception.filter';
 import { AddProductDto } from './dto/add-product.dto';
 import { FindProductDto } from './dto/find-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductModel } from './product.model';
 import { ProductService } from './product.service';
 
+
+@UseFilters(HttpExceptionFilter)
+@UseGuards(AuthGuard("jwt"))
 @Controller('product')
 export class ProductController {
 

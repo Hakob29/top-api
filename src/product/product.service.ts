@@ -18,7 +18,7 @@ export class ProductService {
             return await this.productModel.find();
         } catch (err) {
             console.log(err.message);
-            throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+            throw new HttpException(err.message, HttpStatus.UNAUTHORIZED);
         }
     }
 
@@ -69,8 +69,8 @@ export class ProductService {
     async findProduct(dto: FindProductDto): Promise<ProductModel> {
         try {
             const product: ProductModel = await this.productModel.findOne({
-                category: dto.category,
-                limit: dto.limit
+                title: dto.title,
+                price: dto.price
             });
             return product;
         } catch (err) {
